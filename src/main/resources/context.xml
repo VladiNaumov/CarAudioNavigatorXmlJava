@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- делаем (Bean) объект экземпляра класса Sony-->
+    <bean id="sony" class="audio.Sony"/>
+
+    <!-- делаем (Bean) объект экземпляра класса Alpine-->
+    <bean id="alpine" class="audio.Alpine"/>
+
+    <bean id="garmin" class="navigation.Garmin"/>
+
+    <!-- делаем (Bean) объект экземпляра класса Audi-->
+    <bean id="audi" class="car.Audi">
+
+        <!-- внедрениезависимостей спомощью метода-->
+        <property name="audioSystem" ref="sony"/>
+    </bean>
+
+
+    <!-- делаем (Bean) объект экземпляра класса Audi-->
+    <bean id="lixus" class="car.Lexus">
+
+        <!-- внедрениезависимостей спомощью constructor-->
+        <constructor-arg ref="sony"/>
+        <constructor-arg ref="garmin"/>
+    </bean>
+
+
+
+
+
+
+
+
+</beans>
